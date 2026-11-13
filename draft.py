@@ -39,12 +39,20 @@ while round_1 is True:
     num2 = random.randint(1,12)
     card1= deck[num1]
     card2= deck[num2]
+    player_value_card1= deck_values[num1]
+    player_value_card2= deck_values[num2]
     player_hand =[card1,card2] 
+    player_hand_digit= [player_value_card1,player_value_card2]
+    player_hand_total = sum(player_hand_digit)
     num3 = random.randint(0,12)
     num4 = random.randint(0,12)
     card3 = deck[num3]
     card4 = deck[num4]
     house_hand=[card3,card4]
+    value_card3 = deck_values[num3]
+    value_card4= deck_values[num4]
+    house_hand_digit = [value_card3,value_card4]
+    house_hand_total= sum(house_hand_digit)
     # ace_logic(card1)
     # ace_logic(card2)
     # ace_logic(card3)
@@ -52,27 +60,46 @@ while round_1 is True:
     print(f"The player hand is :{player_hand}\n The visible House hand is {card3}")
     round_1 =False
 
+
 # Player turn
-if sum(player_hand) <= 21:
-    print(f"Your hand is worth{sum(player_hand)}.")
-else:
-    print("Bust!")
+player_turn1 = True
+while player_turn1 == True:
+    if player_hand_total <= 21:
+     print(f"Your hand is worth{player_hand_total}.")
+    else:
+     print("Bust!")
+    
+    player_choice= input("Hit or Stand:").lower()
 
-player_choice= input("Hit or Stand:").lower()
-
-if player_choice == "hit":
-    new_num1 = random.randint(0,13)
-    new_card = deck[new_num1]
-    player_hand.append(new_card)
-    # ace_logic(new_card)
-    print(f"You drew a {new_card}!\n Your new hand value is {sum(player_hand)}")
-    if sum(player_hand)> 21:
+    if player_choice == "hit":
+     new_num1 = random.randint(0,13)
+     new_card = deck[new_num1]
+     player_hand.append(new_card)
+     value_new_card= deck_values[new_num1]
+     player_hand_digit.append(value_new_card)
+     player_hand_1_total = sum(player_hand_digit)
+     
+     # ace_logic(new_card)
+     print(f"You drew a {new_card}!\n Your new hand value is {player_hand_1_total}")
+     if player_hand_1_total > 21:
         print("Bust!") 
-elif player_choice == "stand":
-    print("You pass the turn to the House.")
+        break
+    elif player_choice == "stand":
+     print("You pass the turn to the House.")
+    break 
 else:
-    print("error") #Needs to be fixed
+  print("error") #Needs to be fixed
 
-#House Logic
-while house_hand <= 16:
-    new_house_rannum = random.randint(0,100)
+
+
+house_turn1 = True
+while house_turn1 == True:  
+    while house_hand_total <= 16:
+     new_house_rannum = random.randint(0,40)
+     new_house_card = deck[new_house_rannum]
+     new_house_digit =deck_values[new_house_rannum]
+     new_house_card_value= deck_values[new_house_rannum]
+     house_hand.append(new_house_card)
+     house_hand_new_total= sum(new_house_digit)
+     print(f"The House drew a {new_house_card}\n The Houses new  known total is:{house_hand_new_total} ")
+     
