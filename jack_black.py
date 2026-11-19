@@ -58,7 +58,7 @@ game_on = True
 
 
 print("===================== JACK BLACK =====================")
-preamble = input("Would you like to listen to the bio\n If so please print YES: ").upper()
+preamble = input("Would you like to listen to the Preamble?\n If so please print YES: ").upper()
 if preamble == "YES":
   print("This is a varation of the game 21, created by Caleb Loenser and Callen Priest.\nIt is designed as a quick-play blackjack simulator\n Aces are not featured in this version\n\n\n")
 else:
