@@ -1,8 +1,8 @@
 import random
 import math
-
+import time
 deck = ["Ace of hearts", "2 of hearts", "3 of hearts","4 of hearts","5 of hearts", "6 of hearts", "7 of hearts", "8 of hearts", "9 of hearts", "10 of hearts","Jack of hearts", "Queen of hearts","King of hearts", "Ace of spades","2 of spades","3 of spades", "4 of spades","5 of spades","6 of spades","7 of spades","8 of spades","9 of spades","10 of spades", "Jack of spades", "Queen of spades", "King of spades", "Ace of clubs","2 of clubs","3 of clubs","4 of clubs", "5 of clubs","6 of clubs","7 of clubs","8 of clubs","9 of clubs","10 of clubs", "Jack of clubs", "Queen of clubs", "King of clubs", "Ace of diamonds", "2 of diamonds", "3 of diamonds", "4 of diamonds", "5 of diamonds", "6 of diamonds", "7 of diamonds", "8 of diamonds", "9 of diamonds", "10 of diamonds", "Jack of diamonds", "Queen of diamonds","King of diamonds"]
-deck_values = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10, 10, 10,10,"ace_logic", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, "ace_logic", 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+deck_values = [1, 2, 3, 4, 5, 6, 7, 8 , 9, 10, 10, 10,10,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 game_on = True
 
 # def random_card():
@@ -26,31 +26,36 @@ game_on = True
 #             return "game over, player wins"
 #             print("game over, player wins")
 
-ace_card= []
+# ace_card= []
 
 
 
 
-def ace_logic(acecard):
-  for card in acecard:
-    if card == "ace":
-      ace_card.append(card)
-      print(ace_card)
-  for ace in ace_card:
-    ace = int(input("1 or 11: "))
-    if ace == 1:
-      print("this ace is worth 1") 
-    elif ace == 11:
-      print("this ace is worth 11")
+# def ace_logic(acecard):
+#   for card in acecard:
+#     if card == "ace":
+#       ace_card.append(card)
+#       print(ace_card)
+#   for ace in ace_card:
+#     ace = int(input("1 or 11: "))
+#     if ace == 1:
+#       print("this ace is worth 1") 
+#     elif ace == 11:
+#       print("this ace is worth 11")
 
-        
 
-        
+print("===================== JACK BLACK =====================")
+preamble = input("Would you like to listen to the bio\n If so please print YES: ").upper()
+if preamble == "YES":
+  print("This is a varation of the game 21, created by Caleb Loenser and Callen Priest.\nIt is designed as a quick-play blackjack simulator\n Aces are not featured in this version\n\n\n")
+else:
+  print(":p")
+time.sleep(1)
 #Round 1 logic
 round_1 = True
 while round_1 is True:
-    num1 = random.randint(0,12)
-    num2 = random.randint(1,12)
+    num1 = random.randint(0,40)
+    num2 = random.randint(0,40)
     card1= deck[num1]
     card2= deck[num2]
     player_value_card1= deck_values[num1]
@@ -67,12 +72,12 @@ while round_1 is True:
     value_card4= deck_values[num4]
     house_hand_digit = [value_card3,value_card4]
     house_hand_total= sum(house_hand_digit)
-    ace_logic(card1)
-    ace_logic(card2)
-    ace_logic(card3)
-    ace_logic(card4)
+    # ace_logic(card1)
+    # ace_logic(card2)
+    # ace_logic(card3)
+    # ace_logic(card4)
     print(f"The player hand is :{player_hand}\n The visible House hand is {card3}")
-    round_1 =False
+    time.sleep(1)
     if player_hand_total <= 21:
      print(f"Your hand is worth: {player_hand_total}.")
     else:
@@ -80,20 +85,20 @@ while round_1 is True:
     
     player_choice= input("Hit or Stand:").lower()
 
-    if player_choice == "hit":
-     new_num1 = random.randint(0,13)
+    if player_choice == ("hit","h"):
+     new_num1 = random.randint(0,24)
      new_card = deck[new_num1]
      player_hand.append(new_card)
      value_new_card= deck_values[new_num1]
      player_hand_digit.append(value_new_card)
      player_hand_1_total = sum(player_hand_digit)
-     
-     ace_logic(new_card)
+     time.sleep(1)
      print(f"You drew a {new_card}!\n Your new hand value is {player_hand_1_total}")
      if player_hand_1_total > 21:
         print("Bust!")
         print("You lost!")
-        round_1 = False
+     time.sleep(1)
+
     elif player_choice == "stand":
      print("You pass the turn to the House.")
     else:
@@ -108,7 +113,7 @@ while round_1 is True:
      print(f"The House drew a {new_house_card}\n The Houses new  known total is:{house_hand_new_total} ")
     if house_hand_new_total > 21:
         print("The House Busted!\n You Win!")
-    elif house_hand_new_total <= player_hand_total:
+    elif house_hand_new_total <= player_hand_1_total:
         print("You have the higher hand!\n You Win!")
-    elif house_hand_new_total >= player_hand_total:
+    elif house_hand_new_total >= player_hand_1_total:
         print("House has higher hand!\n You Lose!")
