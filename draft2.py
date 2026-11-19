@@ -72,10 +72,7 @@ while round_1 is True:
     value_card4= deck_values[num4]
     house_hand_digit = [value_card3,value_card4]
     house_hand_total= sum(house_hand_digit)
-    # ace_logic(card1)
-    # ace_logic(card2)
-    # ace_logic(card3)
-    # ace_logic(card4)
+  
     print(f"The player hand is :{player_hand}\n The visible House hand is {card3}")
     time.sleep(1)
     if player_hand_total <= 21:
@@ -110,7 +107,7 @@ while round_1 is True:
      house_hand_digit.append(new_house_digit)
      print(house_hand)
      house_hand_new_total= sum(house_hand_digit)
-     print(f"The House drew a {new_house_card}\n The Houses new  known total is:{house_hand_new_total} ")
+     print(f"\n\n\n\nThe House drew a {new_house_card}\n The Houses new  known total is:{house_hand_new_total} ")
     if house_hand_new_total > 21:
         print("The House Busted!\n You Win!")
     elif house_hand_new_total <= player_hand_1_total:
