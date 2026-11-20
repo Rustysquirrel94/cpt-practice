@@ -27,6 +27,8 @@ if preamble == "YES":
 else:
   print(":p")
 time.sleep(1)
+player_name = input("Enter your name: ")
+print(f"Hello {player_name}!")
 #Round 1 logic
 round_1 = True
 while round_1 is True:
@@ -49,7 +51,7 @@ while round_1 is True:
     house_hand_digit = [value_card3,value_card4]
     house_hand_total= hand_value(house_hand_digit)
   
-    print(f"The player hand is :{player_hand}\n The visible House hand is {card3}")
+    print(f"{player_name}s hand is :{player_hand}\n The visible House hand is {card3}")
     time.sleep(1)
     if player_hand_total <= 21:
      print(f"Your hand is worth: {player_hand_total}.")
@@ -87,12 +89,12 @@ while round_1 is True:
      house_hand_new_total= hand_value(house_hand_digit)
      print(f"\n\n\n\nThe House drew a {new_house_card}\n The Houses new  known total is:{house_hand_new_total} ")
     if house_hand_new_total > 21:
-        print("The House Busted!\n You Win!")
+        print(f"The House Busted!\n {player_name} Wins!")
     elif house_hand_new_total <= hand_value(player_hand_digit):
-        print("You have the higher hand!\n You Win!")
+        print(f"You have the higher hand!\n {player_name} Wins!")
     elif house_hand_new_total >= hand_value(player_hand_digit):
         print("House has higher hand!\n You Lose!")
-    
+    print(f"Good Game {player_name}")
     player_repeat = input("  Type yes if you want to play again:").upper()
     if player_repeat == "YES":
       round_1 = True
