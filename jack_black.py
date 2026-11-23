@@ -65,7 +65,7 @@ while round_1 is True:
     house_hand_digit = [value_card3,value_card4]
     house_hand_total= hand_value(house_hand_digit)
   
-    print(f"{player_name}s hand is :{player_hand}\n The visible House hand is {card3}")
+    print(f"\n\n\n{player_name}s hand is :{player_hand}\n The visible House hand is {card3}")
     time.sleep(1)
     if player_hand_total <= 21:
      print(f"Your hand is worth: {player_hand_total}.")
