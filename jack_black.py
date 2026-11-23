@@ -3,7 +3,7 @@ import math
 import time
 
 
-def hand_value(values):   #Callen did the function and all the put it into it 
+def hand_value(values):               #Callen did the function and all the put it into it 
     total = sum(values)
     aces = values.count(11)
     while total >21 and aces > 0:
