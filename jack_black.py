@@ -93,7 +93,7 @@ while round_1 is True:
     elif player_choice == "stand":
      print("You pass the turn to the House.")
     else:
-     print("Player forfeit Turn") #Needs to be fixed
+     print("Player forfeit Turn") 
     house_hand_new_total = house_hand_total
     if  house_hand_total <= 16:
      new_house_rannum = random.randint(0,40)
@@ -107,7 +107,7 @@ while round_1 is True:
     elif house_hand_new_total <= hand_value(player_hand_digit):
         print(f"You have the higher hand!\n {player_name} Wins!")
     elif house_hand_new_total >= hand_value(player_hand_digit):
-        print("House has higher hand!\n You Lose!")
+        print(f"House has higher hand:{house_hand_new_total}\n You Lose!")
     print(f"Good Game {player_name}")
     player_repeat = input("  Type yes if you want to play again:").upper()
     if player_repeat == "YES":
