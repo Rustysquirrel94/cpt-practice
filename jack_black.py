@@ -3,25 +3,14 @@ import math
 import time
 
 
-
-def ace_logic(acecard):
-  for card in acecard:
-    if card == "ace":
-      ace_card.append(card)
-      print(ace_card)
-  for ace in ace_card:
-    ace = int(input("1 or 11: "))
-    if ace == 1:
-      print("this ace is worth 1") 
-    elif ace == 11:
-      print("this ace is worth 11") 
-
 def hand_value(values):   #Callen did the function and all the put it into it 
     total = sum(values)
     aces = values.count(11)
     while total >21 and aces > 0:
         total -= 10
         aces -=1
+    if total == 21:
+      print("JACKBLACK!")
     return total
 
 
