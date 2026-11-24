@@ -10,7 +10,9 @@ def hand_value(values):               #Callen did the function and all the put i
         total -= 10
         aces -=1
     if total == 21:
-      print("JACKBLACK!")
+      print("--------JACKBLACK--------")
+    else:
+      print("\n")
     return total
 
 
@@ -77,8 +79,8 @@ while round_1 is True:
         print("Bust!")
         print("You lost!")
         round_1 = False
+        break
      time.sleep(1)
-
     elif player_choice == "stand":
      print("You pass the turn to the House.")
     else:
